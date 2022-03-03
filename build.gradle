@@ -17,7 +17,7 @@ node {
 // other tasks that are required to actually call the build "built."
 task build
 
-    task zip(type: Zip) {
+task zip(type: Zip) {
         from ('.') {
 		    include "*"
 		    include "bin/**"
@@ -32,7 +32,6 @@ task build
     }
     build.dependsOn zip
     zip.dependsOn npm_build
-
 // All we need to do, in order for this build to actually run, is to call some of the tasks
 // built in to the node.js and npm plugins. We're going to call them here.
 build.dependsOn npm_build
